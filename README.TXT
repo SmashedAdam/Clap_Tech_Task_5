@@ -1,4 +1,4 @@
-PROJECT NAME: Glass Fliper
+PROJECT NAME: Glass Flipper
 PROJECT MEMBERS: Adam, Audrey, Cody, Song
 
 
