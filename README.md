@@ -1,9 +1,11 @@
-- # `<span style="color:red; font-size: 40px;">`IMPORTANT: `<b>`07-05-2022 Deadline`</b>`
+- # IMPORTANT: 07-05-2022 Deadline
 - # Project basic information
 - ## Language for developing
 
+
   - ### Build with HTML + CSS + JavaScript
 - ## Team Members:
+
 
   - + Adam
     + Audrey
@@ -11,12 +13,14 @@
     + Song
 - ## Estimated workload distribution:
 
+
   - + Adam: Code
     + Audrey: Icons and assets
     + Cody: not sure yet
     + Song: not sure yet
 - # Project basic structure:
 - /ROOT_DIR
+
   - |___   README.TXT
   - |___img_src
   - |___project
@@ -38,7 +42,7 @@
 - ### TODO Optional: Cheat Codes
 - ### TODO Optional: Troll the player while lose
 - # Final Phase
-- ### TODO Polish Code(More readable, better flow, `<b>`NO LEGACY CODE`</b>` )
+- ### TODO Polish Code(More readable, better flow, `<b>`NO LEGACY CODE `</b>` )
 - ### TODO DEBUG
 - ### TODO Package
 - ### TODO Make PowerPoint for presentation
