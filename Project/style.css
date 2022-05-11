@@ -26,12 +26,7 @@
 }
 
 .NaviAnchor:hover:not(.active) {
-  display: block;
-  color: #ffffff;
-  background-color: #000000;
-  padding: 10px;
-  font-family: "Tahoma";
-  text-decoration: none;
+  background-color: #606060;
 }
 
 .active {
@@ -51,4 +46,41 @@
   text-align: center;
   border: 5px solid #000000;
   margin: auto;
+}
+
+#Diff_Title {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
+}
+
+.Diff_Button {
+  font-family: Arial;
+  border: none;
+  margin: 20px;
+  padding: 20px;
+}
+
+.Easy {
+  background-color: #57ffb1;
+}
+
+.Medium {
+  background-color: #fef56d;
+}
+
+.Hard {
+  background-color: #ff6868;
+}
+
+.Easy:active {
+  background-color: #21ff97;
+}
+
+.Medium:active {
+  background-color: #fff01d;
+}
+
+.Hard:active {
+  background-color: #ff4e4e;
 }
