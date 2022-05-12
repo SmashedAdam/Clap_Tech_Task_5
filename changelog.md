@@ -1,5 +1,12 @@
 # Changelog
 
+## 12-5-2022
+
+- Added a Test folder for testing new concepts and codes. It's ok to destroy it.
+- TEST: Trying to make a cheat code system
+- Added a img folder for further image storage
+
+
 ## 11-5-2022
 
 - Added playground to main.html

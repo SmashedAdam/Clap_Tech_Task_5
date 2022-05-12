@@ -1,0 +1,91 @@
+#Navi {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: rgb(221, 220, 220);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+.NaviButton {
+  display: inline;
+  float: left;
+}
+
+.NaviAnchor {
+  display: block;
+  color: #ffffff;
+  background-color: #6bb6bc;
+  padding: 10px;
+  font-family: "Tahoma";
+  text-decoration: none;
+}
+
+.NaviAnchor:hover:not(.active) {
+  background-color: #606060;
+}
+
+.active {
+  display: block;
+  color: #ffffff;
+  background-color: #60cdd4;
+  padding: 10px;
+  font-family: "Tahoma";
+  text-decoration: none;
+}
+
+.Playground {
+  position: relative;
+  width: 80%;
+  height: 500px;
+  background-color: #b7b7b7;
+  text-align: center;
+  border: 5px solid #000000;
+  margin: auto;
+}
+
+#Diff_Title {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
+}
+
+.Diff_Button {
+  font-family: Arial;
+  border: none;
+  margin: 20px;
+  padding: 20px;
+}
+
+.Easy {
+  background-color: #57ffb1;
+}
+
+.Medium {
+  background-color: #fef56d;
+}
+
+.Hard {
+  background-color: #ff6868;
+}
+
+.Easy:active {
+  background-color: #21ff97;
+}
+
+.Medium:active {
+  background-color: #fff01d;
+}
+
+.Hard:active {
+  background-color: #ff4e4e;
+}
+
+
+.cheat_code {
+  size: 300px;
+}
