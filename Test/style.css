@@ -89,3 +89,10 @@
 .cheat_code {
   size: 300px;
 }
+
+#cheatCode {
+  border-style: hidden;
+  width: 30%;
+  padding: 10px;
+  border:30px
+}
