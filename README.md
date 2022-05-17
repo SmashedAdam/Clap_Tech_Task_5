@@ -1,3 +1,4 @@
+- # 請細心閲讀以下文件
 - # IMPORTANT: 07-05-2022 Deadline
 - # Project basic information
 - ## Language for developing
@@ -42,7 +43,7 @@
 - ### TODO Optional: Cheat Codes
 - ### TODO Optional: Troll the player while lose
 - # Final Phase
-- ### TODO Polish Code(More readable, better flow, `<b>`NO LEGACY CODE `</b>` )
+- ### TODO Polish Code(More readable, better flow, **LEGACY CODE NOT ALLOWED**, **記得加上註解** )
 - ### TODO DEBUG
 - ### TODO Package
 - ### TODO Make PowerPoint for presentation
