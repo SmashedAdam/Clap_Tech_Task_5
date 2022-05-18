@@ -48,7 +48,7 @@
   margin: auto;
 }
 
-#Diff_Title {
+h2 {
   font-family: Arial;
   border: None;
   text-decoration: none;
@@ -88,4 +88,18 @@
 
 .cheat_code {
   size: 300px;
+}
+
+#cheatCode {
+  border-style: hidden;
+  width: 30%;
+  padding: 10px;
+  border:30px
+}
+
+
+h1 {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
 }
