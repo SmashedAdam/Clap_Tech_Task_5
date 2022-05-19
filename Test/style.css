@@ -95,10 +95,12 @@ h2 {
 
 .Hardcore:active{
   background-color: #7625c2;
+  color: #ffffff
 }
 
 .PermaDeath:active{
   background-color: #c66bc6;
+  color: #ffffff
 }
 
 .cheat_code {
