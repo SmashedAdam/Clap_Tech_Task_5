@@ -73,6 +73,11 @@ h2 {
   background-color: #ff6868;
 }
 
+.Hardcore{
+  background-color: blueviolet;
+}
+
+
 .Easy:active {
   background-color: #21ff97;
 }
