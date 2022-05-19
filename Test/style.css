@@ -77,6 +77,9 @@ h2 {
   background-color: blueviolet;
 }
 
+.PermaDeath{
+  background-color: violet;
+}
 
 .Easy:active {
   background-color: #21ff97;
