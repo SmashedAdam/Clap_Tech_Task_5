@@ -1,0 +1,21 @@
+What data we store:
+    Life
+    Diff
+    Correct Path
+    Glass status
+    Active Player Pos
+    
+    
+    
+    Extra:
+    Timer
+    
+    
+    
+    
+    
+    
+    Game have 3 classes
+    Model
+    View
+    Controller

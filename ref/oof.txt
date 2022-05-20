@@ -1,0 +1,6 @@
+• Introduction 
+• Reasons to choose and implement the application using web app or mobile app technology 
+• Prototype making experience 
+• Live demo of the app prototype 
+• Difficulties encountered 
+• Conclusion 
