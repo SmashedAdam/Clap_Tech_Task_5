@@ -11,6 +11,47 @@
   left: 0;
 }
 
+#cheatCode {
+  border-style: hidden;
+  width: 30%;
+  padding: 10px;
+  border: 30px;
+}
+
+#playerStatus {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 30%;
+  border: 8px solid #008cff;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+  font-family: tahoma;
+}
+
+#diffStatus {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 30%;
+  border: 8px solid #008cff;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+  font-family: tahoma;
+}
+
+#diffDisplay {
+  font-size:auto;
+}
+
+#lifeDisplay {
+  font-size:auto;
+}
+
 .NaviButton {
   display: inline;
   float: left;
@@ -48,12 +89,6 @@
   margin: auto;
 }
 
-h2 {
-  font-family: Arial;
-  border: None;
-  text-decoration: none;
-}
-
 .Diff_Button {
   font-family: Arial;
   border: none;
@@ -73,11 +108,11 @@ h2 {
   background-color: #ff6868;
 }
 
-.Hardcore{
+.Hardcore {
   background-color: #8a2be2;
 }
 
-.PermaDeath{
+.PermaDeath {
   background-color: #ee82ee;
 }
 
@@ -93,25 +128,18 @@ h2 {
   background-color: #ff4e4e;
 }
 
-.Hardcore:active{
+.Hardcore:active {
   background-color: #7625c2;
-  color: #ffffff
+  color: #ffffff;
 }
 
-.PermaDeath:active{
+.PermaDeath:active {
   background-color: #c66bc6;
-  color: #ffffff
+  color: #ffffff;
 }
 
 .cheat_code {
   size: 300px;
-}
-
-#cheatCode {
-  border-style: hidden;
-  width: 30%;
-  padding: 10px;
-  border:30px
 }
 
 
@@ -119,4 +147,20 @@ h1 {
   font-family: Arial;
   border: None;
   text-decoration: none;
+}
+
+p {
+  font-family: Arial;
+  border: none;
+  text-decoration: none;
+}
+
+h2 {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
+}
+
+.glassPlane {
+  margin: 7px;
 }

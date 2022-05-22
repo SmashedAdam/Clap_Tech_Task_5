@@ -3,33 +3,34 @@
 - # Project basic information
 - ## Language for developing
 
-
   - ### Build with HTML + CSS + JavaScript
+
 - ## Team Members:
 
+  - - Adam
+    - Audrey
+    - Cody
+    - Song
 
-  - + Adam
-    + Audrey
-    + Cody
-    + Song
 - ## Estimated workload distribution:
 
+  - - Adam: Code
+    - Audrey: Icons and assets
+    - Cody: not sure yet
+    - Song: not sure yet
 
-  - + Adam: Code
-    + Audrey: Icons and assets
-    + Cody: not sure yet
-    + Song: not sure yet
 - # Project basic structure:
 - /ROOT_DIR
 
-  - |___   README.TXT
-  - |___img_src
-  - |___project
-    - |___   Main.html
-    - |___   Settings.html
-    - |___   About_Us.html
-    - |___JavaScript
-    - |___CSS
+  - |\_\_\_ README.TXT
+  - |\_\_\_img_src
+  - |\_\_\_project
+    - |\_\_\_ Main.html
+    - |\_\_\_ Settings.html
+    - |\_\_\_ About_Us.html
+    - |\_\_\_JavaScript
+    - |\_\_\_CSS
+
 - # Main Objective
 - TODO Build basic UI
 - TODO Build the basic Glass Flipper game
