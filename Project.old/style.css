@@ -40,15 +40,15 @@
 
 .Playground {
   position: relative;
-  width: 40%;
-  height: 300px;
+  width: 80%;
+  height: 500px;
   background-color: #b7b7b7;
   text-align: center;
   border: 5px solid #000000;
   margin: auto;
 }
 
-h2 {
+#Diff_Title {
   font-family: Arial;
   border: None;
   text-decoration: none;
@@ -73,14 +73,6 @@ h2 {
   background-color: #ff6868;
 }
 
-.Hardcore{
-  background-color: #8a2be2;
-}
-
-.PermaDeath{
-  background-color: #ee82ee;
-}
-
 .Easy:active {
   background-color: #21ff97;
 }
@@ -91,32 +83,4 @@ h2 {
 
 .Hard:active {
   background-color: #ff4e4e;
-}
-
-.Hardcore:active{
-  background-color: #7625c2;
-  color: #ffffff
-}
-
-.PermaDeath:active{
-  background-color: #c66bc6;
-  color: #ffffff
-}
-
-.cheat_code {
-  size: 300px;
-}
-
-#cheatCode {
-  border-style: hidden;
-  width: 30%;
-  padding: 10px;
-  border:30px
-}
-
-
-h1 {
-  font-family: Arial;
-  border: None;
-  text-decoration: none;
 }
