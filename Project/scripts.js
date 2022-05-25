@@ -23,7 +23,7 @@ function lifeBarColor(count, maxCount) {
     maxCount = 11;
   if (count / maxCount > 2 / 3) {
     document.getElementById("playerStatus").style.border =
-      "8px solid ##33ff7a";
+      "8px solid #57ffb1";
   } else if (count / maxCount > 1 / 3) {
     document.getElementById("playerStatus").style.border =
       "8px solid #d1c358";
