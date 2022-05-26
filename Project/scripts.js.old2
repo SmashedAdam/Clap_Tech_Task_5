@@ -11,12 +11,13 @@ function displayManager() {
   diffBarColor();
 }
 
+
 function gameInit() {
-  localStorage.setItem("diff", "easy");
-  document.getElementById("11").src = "./img/valid.png";
-  document.getElementById("21").src = "./img/valid.png";
-  displayManager();
-}
+    localStorage.setItem("diff", "easy");
+    document.getElementById("11").src = "./img/valid.png";
+    document.getElementById("21").src = "./img/valid.png";
+    displayManager();
+  }
 
 function lifeBarColor(count, maxCount) {
     count = 10;
