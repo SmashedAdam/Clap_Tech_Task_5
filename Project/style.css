@@ -11,6 +11,47 @@
   left: 0;
 }
 
+#cheatCode {
+  border-style: hidden;
+  width: 30%;
+  padding: 10px;
+  border: 30px;
+}
+
+#playerStatus {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 30%;
+  border: 8px solid #008cff;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+  font-family: tahoma;
+}
+
+#diffStatus {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 30%;
+  border: 8px solid #008cff;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+  font-family: tahoma;
+}
+
+#diffDisplay {
+  font-size:auto;
+}
+
+#lifeDisplay {
+  font-size:auto;
+}
+
 .NaviButton {
   display: inline;
   float: left;
@@ -40,18 +81,12 @@
 
 .Playground {
   position: relative;
-  width: 80%;
-  height: 500px;
+  width: 50%;
+  height: 300px;
   background-color: #b7b7b7;
   text-align: center;
   border: 5px solid #000000;
   margin: auto;
-}
-
-#Diff_Title {
-  font-family: Arial;
-  border: None;
-  text-decoration: none;
 }
 
 .Diff_Button {
@@ -73,6 +108,14 @@
   background-color: #ff6868;
 }
 
+.Hardcore {
+  background-color: #8a2be2;
+}
+
+.PermaDeath {
+  background-color: #ee82ee;
+}
+
 .Easy:active {
   background-color: #21ff97;
 }
@@ -83,4 +126,41 @@
 
 .Hard:active {
   background-color: #ff4e4e;
+}
+
+.Hardcore:active {
+  background-color: #7625c2;
+  color: #ffffff;
+}
+
+.PermaDeath:active {
+  background-color: #c66bc6;
+  color: #ffffff;
+}
+
+.cheat_code {
+  size: 300px;
+}
+
+
+h1 {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
+}
+
+p {
+  font-family: Arial;
+  border: none;
+  text-decoration: none;
+}
+
+h2 {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
+}
+
+.glassPlane {
+  margin: 7px;
 }

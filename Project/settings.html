@@ -1,33 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="./style.css" type="text/css" />
-  </head>
-  <body>
 
-    <!-- Navigation Bar -->
-    <ul id="Navi">
-      <li class="NaviButton">
-        <a class="NaviAnchor" href="./main.html">Play Game!</a>
-      </li>
-      <li class="NaviButton">
-        <a class="NaviAnchor active" href="./settings.html">Settings</a>
-      </li>
-      <li class="NaviButton">
-        <a class="NaviAnchor" href="./about_us.html">About Us</a>
-      </li>
-    </ul>
-    <!---->
-    <br /><br />
+<head>
+  <link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
 
-    <!-- Title -->
+<body>
+
+  <!-- Navigation Bar -->
+  <ul id="Navi">
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./main.html">Play Game!</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor active" href="./settings.html">Settings</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./about_us.html">About Us</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./help.html">Help</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./cheat.html" style="background-color: #ff0000;">CHEAT CODES</a>
+    </li>
+  </ul>
+  <!---->
+  <br /><br />
+
+  <!-- Title -->
+  <h1>Settings</h1>
+  <blockquote>
     <h2 id="Diff_Title">Difficulty selection</h2>
+  </blockquote>
+  <!-- Difficulty Selection Buttons -->
 
-    <!-- Difficulty Selection Buttons -->
-    <div display: table>
-      <button type="button" class="Diff_Button Easy">Easy</button>
-      <button type="button" class="Diff_Button Medium">Normal</button>
-      <button type="button" class="Diff_Button Hard">Hard</button>
-    </div>
-  </body>
+  
+  <div display: table>
+      <span>
+        <blockquote><blockquote>
+        <p>
+            Easy : 7 life <br />
+            Medium : 5 life <br />
+            Hard : 3 life <br />
+            Hardcore : 2 life <br />
+            PermaDeath : 1 life
+        
+        </p>
+        </blockquote></blockquote>
+      </span>
+      <button type="button" onclick="changeDiff('easy')" class="Diff_Button Easy">Easy</button>
+      <button type="button" onclick="changeDiff('normal')" class="Diff_Button Medium">Normal</button>
+      <button type="button" onclick="changeDiff('hard')" class="Diff_Button Hard">Hard</button>
+      <button type="button" onclick="changeDiff('hardcore')" class="Diff_Button Hardcore">Hardcore</button>
+      <button type="button" onclick="changeDiff('permadeath')" class="Diff_Button PermaDeath">PermaDeath</button>
+  </div>
+</body>
+
 </html>

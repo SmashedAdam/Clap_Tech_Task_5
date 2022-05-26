@@ -2,6 +2,9 @@
 <html>
   <head>
     <link rel="stylesheet" href="./style.css" type="text/css" />
+    <script type="text/javascript" src="./scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script></script>
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -15,13 +18,66 @@
       <li class="NaviButton">
         <a class="NaviAnchor" href="./about_us.html">About Us</a>
       </li>
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./help.html">Help</a>
+      </li>
+      <li class="NaviButton">
+        <a
+          class="NaviAnchor active"
+          href="./cheat.html"
+          style="background-color: #ff0000"
+          >CHEAT CODES</a
+        >
+      </li>
     </ul>
     <!---->
 
-    <br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br />
 
     <!-- Playground -->
-    <div class="Playground"></div>
+    <div class="Playground">
+      <div class="glass" style="margin: auto; padding-top: 20px">
+        <!-- Glass Plane -->
+        <!-- These images id are named with rule: <row><from Left to Right> -->
+        <img src="./img/glass.png" onclick="" id="11" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="12" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="13" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="14" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="15" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="16" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="17" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="18" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="19" class="glassPlane" />
+        <br />
+        <img src="./img/glass.png" onclick="" id="21" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="22" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="23" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="24" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="25" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="26" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="27" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="28" class="glassPlane" />
+        <img src="./img/glass.png" onclick="" id="29" class="glassPlane" />
+      </div>
+      <br />
+      <!-- Player status will be displayed here-->
+      <div id="playerStatus">
+        <b>Life left:</b>
+        <span id="lifeDisplay">0</span>
+      </div>
+      <span style="margin-left: 100px"></span>
+      <div id="diffStatus">
+        <b>Difficulty:</b>
+        <span id="diffDisplay">Easy</span>
+      </div>
+      <!---->
+    </div>
+    <button onclick="gameInit()">Activate Game</button><br />
+    <!---->
+
+    <!-- DEBUG  -->
+    <button type="button" onclick="run1round()">Deal 1 damage</button>
+    <button type="button" onclick="displayManager()">Update View</button>
     <!---->
   </body>
 </html>
