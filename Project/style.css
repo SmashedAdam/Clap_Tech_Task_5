@@ -146,7 +146,14 @@
   margin: 7px;
 }
 
-
+.welcome {
+  display: block;
+  color: #000000;
+  background-color: #fff45eef;
+  padding: 10px;
+  font-family: "Tahoma";
+  text-decoration: none;
+}
 
 h1 {
   font-family: Arial;
