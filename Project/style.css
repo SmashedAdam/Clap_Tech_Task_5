@@ -142,6 +142,11 @@
   size: 300px;
 }
 
+.glassPlane {
+  margin: 7px;
+}
+
+
 
 h1 {
   font-family: Arial;
@@ -161,6 +166,3 @@ h2 {
   text-decoration: none;
 }
 
-.glassPlane {
-  margin: 7px;
-}

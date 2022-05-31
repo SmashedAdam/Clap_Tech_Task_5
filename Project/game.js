@@ -1,36 +1,27 @@
-var row1 = [11,21];
-var row2 = [12,22];
-var row3 = [13,23];
-var row4 = [14,24];
-var row5 = [15,25];
-var row6 = [16,26];
-var row7 = [17,27];
-var row8 = [18,28];
-var row9 = [19,29];
-var glassCord = [];
-var safeCord = [];
+const MAX_ROUND = 9;
+const MAX_COL = 9;
+const MAX_ROW = 2;
+var d = null;
 
-
-function ranNumGen(max) {
-    return Math.floor(Math.random() * max);
-}
-
-
-function gameInit() {
-    localStorage.setItem("diff", "easy");
-    document.getElementById("11").src = "./img/valid.png";
-    document.getElementById("21").src = "./img/valid.png";
-    determineGlassCord();
-    displayManager();
+class GameSession {
+  constructor(safeLocation, currentPos) {
+    this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
+    this.dangerLocation = [[], [], [], [], [], [], [], [], []];
+    this.currentPos = [0, 0];
   }
-
-function chooseGlass() {
-
+  genSafeTile() {
+    for (var c = 0; c < MAX_COL; c++) {
+      d = Math.floor(Math.random() * 2);
+      if (d < 1) {
+        this.safeLocation[c] = [c, 0];
+      } else {
+        this.safeLocation[c] = [c, 1];
+      }
+    }
+  }
+  stepForward(X, Y, currentPos) {}
 }
 
-
-
-function determineGlassCord() {
-    
-    safeCord.push();
-}
+var play = new GameSession();
+play.genSafeTile();
+console.log(play.safeLocation);
