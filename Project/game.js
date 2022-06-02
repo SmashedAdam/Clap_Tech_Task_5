@@ -19,8 +19,8 @@ class GameSession {
   }
 
   newSession() {
-    document.getElementById("01").src = "./img/valid.png";
-    document.getElementById("11").src = "./img/valid.png";
+    document.getElementById("00").src = "./img/valid.png";
+    document.getElementById("10").src = "./img/valid.png";
     this.validTile.push([0, 0]);
     this.validTile.push([1, 0]);
   }
@@ -93,7 +93,7 @@ class GameSession {
     }
 
     // update game view
-    updateView();
+    this.updateView();
   }
 }
 
