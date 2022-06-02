@@ -14,3 +14,13 @@ class player {
 
 var user = new player();
 console.log(user.output);
+
+
+
+
+
+var r = 10;
+var c = 20;
+
+
+console.log(r.toString() + c.toString());
