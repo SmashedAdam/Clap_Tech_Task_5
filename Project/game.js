@@ -4,6 +4,10 @@ const MAX_ROW = 2;
 var d = null;
 var determin = null;
 var position = null;
+var targetX = null;
+var id = null;
+var currentX = null;
+var a = null;
 
 class GameSession {
   constructor(safeLocation, currentXPos, currentYPos, dangerLocation, life) {
@@ -13,16 +17,32 @@ class GameSession {
     this.openTile = [];
     this.validTile = [];
     this.life = null;
+    this.diff = null;
 
-    this.currentXPos = null;
-    this.currentYPos = null;
+    this.currentXPos = -1;
+    this.currentYPos = -1;
   }
 
   newSession() {
     document.getElementById("00").src = "./img/valid.png";
     document.getElementById("10").src = "./img/valid.png";
+    this.genSafeTile();
     this.validTile.push([0, 0]);
     this.validTile.push([1, 0]);
+    this.diff = window.localStorage.getItem("diff");
+    if (this.diff == "easy") {
+      this.life = 7;
+    } else if (this.diff == "normal") {
+      this.life = 5;
+    } else if (this.diff == "hard") {
+      this.life = 3;
+    } else if (this.diff == "hardcore") {
+      this.life = 2;
+    } else if (this.diff == "permadeath") {
+      this.life = 1;
+    }
+    document.getElementById("diffDisplay").innerHTML = this.diff;
+    document.getElementById("lifeDisplay").innerHTML = this.life;
   }
 
   genSafeTile() {
@@ -41,59 +61,43 @@ class GameSession {
     console.log(this.dangerLocation); //debug only
   }
 
-  // update the view of the webpage
-  updateView() {
-    for (var c = 0; c < MAX_COL; c++) {
-      for (var r = 0; r < MAX_ROW; r++) {
-        position = c.toString() + r.toString();
-        document.getElementById(position).src = "./img/glass.png";
-        position = this.currentXPos.toString() + this.currentYPos.toString();
-        document.getElementById(position).src = "./img/player.png";
-        for (index = 0; index < this.openTile.length; index++) {
-          determin = this.openTile[index];
-          if (determin[0] == c && determin[1] == r) {
-            position = c.toString() + r.toString();
-            document.getElementById(position).src = "./img/open.png";
-          }
-        }
-        for (index = 0; index < this.validTile.length; index++) {
-          determin = this.validTile[index];
-          if (determin[0] == c && determin[1] == r) {
-            position = c.toString() + r.toString();
-            document.getElementById(position).src = "./img/valid.png";
-          }
-        }
-        for (index = 0; index < this.deadTile.length; index++) {
-          determin = this.deadTile[index];
-          if (determin[0] == c && determin[1] == r) {
-            position = c.toString() + r.toString();
-            document.getElementById(position).src = "./img/broken.png";
-          }
-        }
-      }
+  stepForward(y, x) {
+    if (x < this.currentXPos) {
+      console.log("Not allowed to step backward");
+    } else if (x > this.currentXPos + 1) {
+      console.log("Not allowed to jump forward");
+    } else {
+      this.currentXPos = x;
+      this.currentYPos = y;
+      this.validController();
     }
   }
 
-  stepForward(X, Y) {
-    // blocking the user to step backward
-    if (this.currentXPos < X) {
-      this.currentXPos = X + 1;
-      this.currentYPos = Y;
-      // check is user dead while going forward
-      if (Y == this.dangerLocation[X][1]) {
-        console.log("User is dead");
-        this.deadTile.push([X, Y]);
-        this.currentXPos = 0;
-        this.currentYPos = 0;
-      } else {
-        console.log("This tile is safe and revealed");
-        this.openTile.push([X, Y]);
-      }
-    } else {
+  validController() {
+    targetX = this.currentXPos + 1;
+    currentX = this.currentXPos;
+    this.validTile = [];
+    for (var i = 0; i < 2; i++) {
+      a = currentX + 1;
+      id = i.toString() + a.toString();
+      document.getElementById(id).src = "./img/valid.png";
     }
-
-    // update game view
-    this.updateView();
+    for (i = 0; i < 2; i++) {
+      a = currentX;
+      id = i.toString() + a.toString();
+      document.getElementById(id).src = "./img/glass.png";
+    }
+  }
+  // DEBUG ONLY
+  logLists() {
+    console.log("Debugging Data: ");
+    console.log("Safe Locations: " + this.safeLocation);
+    console.log("Danger Locations: " + this.dangerLocation);
+    console.log("Current Location: " + this.currentXPos + this.currentYPos);
+    console.log("dead tiles; " + this.deadTile);
+    console.log("opened tiles: " + this.openTile);
+    console.log("Valid Tiles: " + this.validTile);
+    console.log("");
   }
 }
 
