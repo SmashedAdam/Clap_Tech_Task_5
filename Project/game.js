@@ -18,12 +18,20 @@ class GameSession {
     this.validTile = [];
     this.life = null;
     this.diff = null;
-
     this.currentXPos = -1;
     this.currentYPos = -1;
   }
 
-  newSession() {
+  resetEnv() {
+    this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
+    this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
+    this.deadTile = [];
+    this.openTile = [];
+    this.validTile = [];
+    this.life = null;
+    this.diff = null;
+    this.currentXPos = -1;
+    this.currentYPos = -1;
     for (var i = 0; i < 2; i++) {
       for (var o = 0; o < 9; o++) {
         id = i.toString() + o.toString();
@@ -31,6 +39,10 @@ class GameSession {
         document.getElementById(id).src = "./img/glass.png";
       }
     }
+  }
+
+  newSession() {
+    this.resetEnv();
     this.genSafeTile();
     this.validTile.push([0, 0]);
     this.validTile.push([1, 0]);
