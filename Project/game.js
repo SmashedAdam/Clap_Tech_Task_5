@@ -24,8 +24,13 @@ class GameSession {
   }
 
   newSession() {
-    document.getElementById("00").src = "./img/valid.png";
-    document.getElementById("10").src = "./img/valid.png";
+    for (var i = 0; i < 2; i++) {
+      for (var o = 0; o < 9; o++) {
+        id = i.toString() + o.toString();
+        console.log(id);
+        document.getElementById(id).src = "./img/glass.png";
+      }
+    }
     this.genSafeTile();
     this.validTile.push([0, 0]);
     this.validTile.push([1, 0]);
@@ -43,6 +48,9 @@ class GameSession {
     }
     document.getElementById("diffDisplay").innerHTML = this.diff;
     document.getElementById("lifeDisplay").innerHTML = this.life;
+
+    document.getElementById("00").src = "./img/valid.png";
+    document.getElementById("10").src = "./img/valid.png";
   }
 
   genSafeTile() {
