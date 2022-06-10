@@ -17,7 +17,7 @@ class GameSession {
     this.openTile = [];
     this.validTile = [];
     this.life = null;
-    this.diff = null;
+    this.diff = "easy";
     this.currentXPos = -1;
     this.currentYPos = -1;
   }
@@ -29,7 +29,7 @@ class GameSession {
     this.openTile = [];
     this.validTile = [];
     this.life = null;
-    this.diff = null;
+    this.diff = "easy";
     this.currentXPos = -1;
     this.currentYPos = -1;
     for (var i = 0; i < 2; i++) {
@@ -81,6 +81,12 @@ class GameSession {
     console.log(this.dangerLocation); //debug only
   }
 
+  win() {
+    console.log("Player won the game.");
+    window.alert("You won!");
+    location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ"); // Rick Roll LOL
+  }
+
   stepForward(y, x) {
     if (x < this.currentXPos) {
       console.log("Not allowed to step backward");
@@ -89,6 +95,9 @@ class GameSession {
     } else {
       this.currentXPos = x;
       this.currentYPos = y;
+      if (x == 8) {
+        this.win();
+      }
       this.validController();
     }
   }
@@ -100,12 +109,17 @@ class GameSession {
     for (var i = 0; i < 2; i++) {
       a = currentX + 1;
       id = i.toString() + a.toString();
-      document.getElementById(id).src = "./img/valid.png";
+      if (id == "09" || id == "19") {
+        continue;
+      } else {
+        document.getElementById(id).src = "./img/valid.png";
+      }
     }
     for (i = 0; i < 2; i++) {
       a = currentX;
       id = i.toString() + a.toString();
       document.getElementById(id).src = "./img/glass.png";
+      a = currentX;
     }
   }
   // DEBUG ONLY
