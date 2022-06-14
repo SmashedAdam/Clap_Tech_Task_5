@@ -84,7 +84,7 @@ class GameSession {
   win() {
     console.log("Player won the game.");
     window.alert("You won!");
-    location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // Rick Roll LOL
+    // location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // Rick Roll LOL
   }
 
   stepForward(y, x) {
