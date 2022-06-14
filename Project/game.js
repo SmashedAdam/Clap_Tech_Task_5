@@ -5,17 +5,18 @@ var d = null;
 var determin = null;
 var position = null;
 var targetX = null;
+var targetY = null;
 var id = null;
 var currentX = null;
 var a = null;
+var lastX = null;
+var lastY = null;
 
 class GameSession {
   constructor(safeLocation, currentXPos, currentYPos, dangerLocation, life) {
     this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.deadTile = [];
-    this.openTile = [];
-    this.validTile = [];
     this.life = null;
     this.diff = "easy";
     this.currentXPos = -1;
@@ -26,8 +27,6 @@ class GameSession {
     this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.deadTile = [];
-    this.openTile = [];
-    this.validTile = [];
     this.life = null;
     this.diff = "easy";
     this.currentXPos = -1;
@@ -44,8 +43,6 @@ class GameSession {
   newSession() {
     this.resetEnv();
     this.genSafeTile();
-    this.validTile.push([0, 0]);
-    this.validTile.push([1, 0]);
     this.diff = window.localStorage.getItem("diff");
     if (this.diff == "easy") {
       this.life = 7;
@@ -99,13 +96,14 @@ class GameSession {
         this.win();
       }
       this.validController();
+      this.playerTP();
+      this.deadControl(y, x);
     }
   }
 
   validController() {
     targetX = this.currentXPos + 1;
     currentX = this.currentXPos;
-    this.validTile = [];
     for (var i = 0; i < 2; i++) {
       a = currentX + 1;
       id = i.toString() + a.toString();
@@ -120,6 +118,29 @@ class GameSession {
       id = i.toString() + a.toString();
       document.getElementById(id).src = "./img/glass.png";
       a = currentX;
+    }
+  }
+  playerTP() {
+    targetX = this.currentXPos;
+    targetY = this.currentYPos;
+    id = targetY.toString() + targetX.toString();
+    document.getElementById(id).src = "./img/player.png";
+    if (lastX == null || lastY == null) {
+    } else {
+      id = lastY.toString() + lastX.toString();
+      document.getElementById(id).src = "./img/glass.png";
+    }
+    lastY = this.currentYPos;
+    lastX = this.currentXPos;
+  }
+  deadControl(y, x) {
+    for (var c = 0; c < this.dangerLocation.length; c++) {
+      var data = this.dangerLocation[c];
+      if (x == data[0]) {
+        if (y == data[1]) {
+          console.log("Player is dead");
+        }
+      }
     }
   }
   // DEBUG ONLY
