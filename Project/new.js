@@ -22,7 +22,7 @@ class GameSession {
     this.currentXPos = -1;
     this.currentYPos = -1;
   }
-
+  // Environment control
   newSession() {
     this.resetEnv();
     this.genSafeTile();
@@ -53,19 +53,8 @@ class GameSession {
     this.diff = "easy";
     this.currentXPos = -1;
     this.currentYPos = -1;
-    for (var i = 0; i < 2; i++) {
-      for (var o = 0; o < 9; o++) {
-        id = i.toString() + o.toString();
-        console.log(id);
-        document.getElementById(id).src = "./img/glass.png";
-      }
-    }
+    this.glassRender();
   }
-
- viewControl() {
-   document.getElementById("lifeDisplay").innerHTML = this.life;
- }
-
   genSafeTile() {
     // generate a safe tile list and a danger tile list
     for (var c = 0; c < MAX_COL; c++) {
@@ -80,6 +69,9 @@ class GameSession {
     }
     console.log(this.safeLocation); //debug only
     console.log(this.dangerLocation); //debug only
+  }
+  viewControl() {
+    document.getElementById("lifeDisplay").innerHTML = this.life;
   }
 
   win() {
@@ -152,21 +144,12 @@ class GameSession {
           this.deadTile.push(temp);
           console.log(this.deadTile.length);
           this.viewControl();
-          for (var ite = 0; ite < this.deadTile.length; ite++) {
-            var block = this.deadTile[ite];
-            for (var posi = 0; posi < 2; posi++) {
-              var deadX = block[0];
-              var deadY = block[1];
-              id = deadY.toString() + deadX.toString();
-              document.getElementById(id).src = "./img/broken.png";
-              this.backToStart();
-            }
-          }
+          this.deadRender();
         }
       }
     }
   }
-  
+
   backToStart() {
     this.currentXPos = -1;
     this.currentYPos = -1;
@@ -178,7 +161,29 @@ class GameSession {
       }
     }
     // render again
+  }
 
+  // Rendering
+  glassRender() {
+    for (var i = 0; i < 2; i++) {
+      for (var o = 0; o < 9; o++) {
+        id = i.toString() + o.toString();
+        console.log(id);
+        document.getElementById(id).src = "./img/glass.png";
+      }
+    }
+  }
+  deadRender() {
+    for (var ite = 0; ite < this.deadTile.length; ite++) {
+      var block = this.deadTile[ite];
+      for (var posi = 0; posi < 2; posi++) {
+        var deadX = block[0];
+        var deadY = block[1];
+        id = deadY.toString() + deadX.toString();
+        document.getElementById(id).src = "./img/broken.png";
+        this.backToStart();
+      }
+    }
   }
   // DEBUG ONLY
   logLists() {
