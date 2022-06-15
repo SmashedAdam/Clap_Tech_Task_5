@@ -56,15 +56,14 @@ class GameSession {
     for (var i = 0; i < 2; i++) {
       for (var o = 0; o < 9; o++) {
         id = i.toString() + o.toString();
-        console.log(id);
         document.getElementById(id).src = "./img/glass.png";
       }
     }
   }
 
- viewControl() {
-   document.getElementById("lifeDisplay").innerHTML = this.life;
- }
+  viewControl() {
+    document.getElementById("lifeDisplay").innerHTML = this.life;
+  }
 
   genSafeTile() {
     // generate a safe tile list and a danger tile list
@@ -85,7 +84,14 @@ class GameSession {
   win() {
     console.log("Player won the game.");
     window.alert("You won!");
-    // location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // Rick Roll LOL
+    window.alert("Receive a ")
+    location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // Rick Roll LOL
+  }
+  lose() {
+    console.log("Player lose the game.");
+    window.alert("You lost!");
+    window.alert("Receive your punishment now!");
+    location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // The same LOL
   }
 
   stepForward(y, x) {
@@ -99,8 +105,12 @@ class GameSession {
       if (x == 8) {
         this.win();
       }
+      if (life == 0) {
+        this.lose();
+      }
       this.validController(); // render valid glass
       this.playerTP(); // render player position
+      this.deadRender();
       this.deadControl(y, x); // detect is the player dead or not, then render it
     }
   }
@@ -152,33 +162,39 @@ class GameSession {
           this.deadTile.push(temp);
           console.log(this.deadTile.length);
           this.viewControl();
-          for (var ite = 0; ite < this.deadTile.length; ite++) {
-            var block = this.deadTile[ite];
-            for (var posi = 0; posi < 2; posi++) {
-              var deadX = block[0];
-              var deadY = block[1];
-              id = deadY.toString() + deadX.toString();
-              document.getElementById(id).src = "./img/broken.png";
-              this.backToStart();
-            }
-          }
+          this.backToStart();
+          document.getElementById("00").src = "./img/valid.png";
+          document.getElementById("10").src = "./img/valid.png";
+          this.deadRender();
         }
       }
     }
   }
-  
+
   backToStart() {
     this.currentXPos = -1;
     this.currentYPos = -1;
     for (var i = 0; i < 2; i++) {
       for (var o = 0; o < 9; o++) {
         id = i.toString() + o.toString();
-        console.log(id);
         document.getElementById(id).src = "./img/glass.png";
       }
     }
     // render again
+  }
 
+
+
+  deadRender() {
+    for (var ite = 0; ite < this.deadTile.length; ite++) {
+      var block = this.deadTile[ite];
+      for (var posi = 0; posi < 2; posi++) {
+        var deadX = block[0];
+        var deadY = block[1];
+        id = deadY.toString() + deadX.toString();
+        document.getElementById(id).src = "./img/broken.png";
+      }
+    }
   }
   // DEBUG ONLY
   logLists() {
