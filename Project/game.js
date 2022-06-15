@@ -11,13 +11,22 @@ var currentX = null;
 var a = null;
 var lastX = null;
 var lastY = null;
+var lose = "no";
 
 class GameSession {
-  constructor(safeLocation, currentXPos, currentYPos, dangerLocation, life) {
+  constructor(
+    safeLocation,
+    currentXPos,
+    currentYPos,
+    dangerLocation,
+    life,
+    maxLife
+  ) {
     this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.deadTile = [];
     this.life = null;
+    this.maxLife = null;
     this.diff = "easy";
     this.currentXPos = -1;
     this.currentYPos = -1;
@@ -29,18 +38,27 @@ class GameSession {
     this.diff = window.localStorage.getItem("diff");
     if (this.diff == "easy") {
       this.life = 7;
+      this.maxLife = 7;
+      document.getElementById("diffDisplay").innerHTML = "簡單";
     } else if (this.diff == "normal") {
       this.life = 5;
+      this.maxLife = 5;
+      document.getElementById("diffDisplay").innerHTML = "一般";
     } else if (this.diff == "hard") {
       this.life = 3;
+      this.maxLife = 3;
+      document.getElementById("diffDisplay").innerHTML = "困難";
     } else if (this.diff == "hardcore") {
       this.life = 2;
+      this.maxLife = 2;
+      document.getElementById("diffDisplay").innerHTML = "噩夢";
     } else if (this.diff == "permadeath") {
       this.life = 1;
+      this.maxLife = 1;
+      document.getElementById("diffDisplay").innerHTML = "永久死亡";
     }
-    document.getElementById("diffDisplay").innerHTML = this.diff;
     document.getElementById("lifeDisplay").innerHTML = this.life;
-
+    this.viewControl();
     document.getElementById("00").src = "./img/valid.png";
     document.getElementById("10").src = "./img/valid.png";
   }
@@ -63,6 +81,29 @@ class GameSession {
 
   viewControl() {
     document.getElementById("lifeDisplay").innerHTML = this.life;
+    // Life indicator
+    if (this.life / this.maxLife > 2 / 3) {
+      document.getElementById("playerStatus").style.border =
+        "8px solid #57ffb1";
+    } else if (this.life / this.maxLife > 1 / 3) {
+      document.getElementById("playerStatus").style.border =
+        "8px solid #d1c358";
+    } else if (this.life / this.maxLife < 1 / 3) {
+      document.getElementById("playerStatus").style.border =
+        "8px solid #ab0000";
+    }
+    // Difficulty Level indicator
+    if (this.diff == "easy") {
+      document.getElementById("diffStatus").style.border = "8px solid #57ffb1";
+    } else if (this.diff == "normal") {
+      document.getElementById("diffStatus").style.border = "8px solid #fef56d";
+    } else if (this.diff == "hard") {
+      document.getElementById("diffStatus").style.border = "8px solid #ff6868";
+    } else if (this.diff == "hardcore") {
+      document.getElementById("diffStatus").style.border = "8px solid #8a2be2";
+    } else if (this.diff == "permadeath") {
+      document.getElementById("diffStatus").style.border = "8px solid #ee82ee";
+    }
   }
 
   genSafeTile() {
@@ -92,26 +133,27 @@ class GameSession {
     window.alert("You lost!");
     window.alert("Receive your punishment now!");
     window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // The same LOL
+    lose = "yes";
   }
 
   stepForward(y, x) {
-    if (x < this.currentXPos) {
-      console.log("Not allowed to step backward");
-    } else if (x > this.currentXPos + 1) {
-      console.log("Not allowed to jump forward");
+    if (lose == "yes") {
     } else {
-      this.currentXPos = x;
-      this.currentYPos = y;
-      if (x == 8) {
-        this.win();
+      if (x < this.currentXPos) {
+        console.log("Not allowed to step backward");
+      } else if (x > this.currentXPos + 1) {
+        console.log("Not allowed to jump forward");
+      } else {
+        this.currentXPos = x;
+        this.currentYPos = y;
+        if (x == 8) {
+          this.win();
+        }
+        this.validController(); // render valid glass
+        this.playerTP(); // render player position
+        this.deadRender();
+        this.deadControl(y, x); // detect is the player dead or not, then render it
       }
-      if (this.life == 0) {
-        this.lose();
-      }
-      this.validController(); // render valid glass
-      this.playerTP(); // render player position
-      this.deadRender();
-      this.deadControl(y, x); // detect is the player dead or not, then render it
     }
   }
 
@@ -157,11 +199,15 @@ class GameSession {
       if (x == data[0]) {
         if (y == data[1]) {
           this.life = this.life - 1;
+
           console.log("Player is dead");
           var temp = [x, y];
           this.deadTile.push(temp);
           console.log(this.deadTile.length);
           this.viewControl();
+          if (this.life < 1) {
+            this.lose();
+          }
           this.backToStart();
           document.getElementById("00").src = "./img/valid.png";
           document.getElementById("10").src = "./img/valid.png";
@@ -182,8 +228,6 @@ class GameSession {
     }
     // render again
   }
-
-
 
   deadRender() {
     for (var ite = 0; ite < this.deadTile.length; ite++) {
