@@ -84,7 +84,7 @@ class GameSession {
   win() {
     console.log("Player won the game.");
     window.alert("You won!");
-    window.alert("Receive a ")
+    window.alert("Receive your prize!");
     location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // Rick Roll LOL
   }
   lose() {
@@ -105,7 +105,7 @@ class GameSession {
       if (x == 8) {
         this.win();
       }
-      if (life == 0) {
+      if (this.life == 0) {
         this.lose();
       }
       this.validController(); // render valid glass
