@@ -85,13 +85,13 @@ class GameSession {
     console.log("Player won the game.");
     window.alert("You won!");
     window.alert("Receive your prize!");
-    location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // Rick Roll LOL
+    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // Rick Roll LOL
   }
   lose() {
     console.log("Player lose the game.");
     window.alert("You lost!");
     window.alert("Receive your punishment now!");
-    location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0"); // The same LOL
+    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // The same LOL
   }
 
   stepForward(y, x) {
