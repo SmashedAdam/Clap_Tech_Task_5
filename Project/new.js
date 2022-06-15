@@ -18,7 +18,7 @@ class GameSession {
     this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.deadTile = [];
     this.life = null;
-    this.diff = "easy";
+    this.diff = null;
     this.currentXPos = -1;
     this.currentYPos = -1;
   }
@@ -50,7 +50,7 @@ class GameSession {
     this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.deadTile = [];
     this.life = null;
-    this.diff = "easy";
+    this.diff = null;
     this.currentXPos = -1;
     this.currentYPos = -1;
     this.glassRender();
@@ -67,10 +67,8 @@ class GameSession {
         this.dangerLocation[c] = [c, 0]; // inverting the safeLocation result
       }
     }
-    console.log(this.safeLocation); //debug only
-    console.log(this.dangerLocation); //debug only
   }
-  viewControl() {
+  lifeViewControl() {
     document.getElementById("lifeDisplay").innerHTML = this.life;
   }
 
@@ -105,6 +103,7 @@ class GameSession {
     for (var i = 0; i < 2; i++) {
       a = currentX + 1;
       id = i.toString() + a.toString();
+      console.log("DEBUG"+id)
       if (id == "09" || id == "19") {
         continue;
       } else {
@@ -143,7 +142,7 @@ class GameSession {
           var temp = [x, y];
           this.deadTile.push(temp);
           console.log(this.deadTile.length);
-          this.viewControl();
+          this.lifeViewControl();
           this.deadRender();
         }
       }
@@ -153,13 +152,7 @@ class GameSession {
   backToStart() {
     this.currentXPos = -1;
     this.currentYPos = -1;
-    for (var i = 0; i < 2; i++) {
-      for (var o = 0; o < 9; o++) {
-        id = i.toString() + o.toString();
-        console.log(id);
-        document.getElementById(id).src = "./img/glass.png";
-      }
-    }
+    this.glassRender();
     // render again
   }
 
@@ -168,7 +161,6 @@ class GameSession {
     for (var i = 0; i < 2; i++) {
       for (var o = 0; o < 9; o++) {
         id = i.toString() + o.toString();
-        console.log(id);
         document.getElementById(id).src = "./img/glass.png";
       }
     }
@@ -180,8 +172,10 @@ class GameSession {
         var deadX = block[0];
         var deadY = block[1];
         id = deadY.toString() + deadX.toString();
-        document.getElementById(id).src = "./img/broken.png";
         this.backToStart();
+        this.validController();
+        document.getElementById(id).src = "./img/broken.png";
+        
       }
     }
   }
