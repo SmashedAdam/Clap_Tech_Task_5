@@ -95,12 +95,14 @@ class GameSession {
       if (x == 8) {
         this.win();
       }
-      this.validController();
-      this.playerTP();
-      this.deadControl(y, x);
+      this.validController(); // render valid glass
+      this.playerTP(); // render player position
+      this.deadControl(y, x); // detect is the player dead or not, then render it
     }
   }
 
+  // Game mechanism
+  // render all valid tiles, then restore old tiles into glass
   validController() {
     targetX = this.currentXPos + 1;
     currentX = this.currentXPos;
@@ -120,6 +122,7 @@ class GameSession {
       a = currentX;
     }
   }
+  // This method control where the player icon should render, then turn old tile back to glass
   playerTP() {
     targetX = this.currentXPos;
     targetY = this.currentYPos;
@@ -133,15 +136,44 @@ class GameSession {
     lastY = this.currentYPos;
     lastX = this.currentXPos;
   }
+  // check is the player dead, then do a render job
   deadControl(y, x) {
     for (var c = 0; c < this.dangerLocation.length; c++) {
       var data = this.dangerLocation[c];
       if (x == data[0]) {
         if (y == data[1]) {
+          this.life = this.life - 1;
           console.log("Player is dead");
+          var temp = [x, y];
+          this.deadTile.push(temp);
+          console.log(this.deadTile.length);
+          for (var ite = 0; ite < this.deadTile.length; ite++) {
+            var block = this.deadTile[ite];
+            for (var posi = 0; posi < 2; posi++) {
+              var deadX = block[0];
+              var deadY = block[1];
+              id = deadY.toString() + deadX.toString();
+              document.getElementById(id).src = "./img/broken.png";
+              this.backToStart();
+            }
+          }
         }
       }
     }
+  }
+
+  backToStart() {
+    this.currentXPos = -1;
+    this.currentYPos = -1;
+    for (var i = 0; i < 2; i++) {
+      for (var o = 0; o < 9; o++) {
+        id = i.toString() + o.toString();
+        console.log(id);
+        document.getElementById(id).src = "./img/glass.png";
+      }
+    }
+    // render again
+    
   }
   // DEBUG ONLY
   logLists() {
@@ -149,7 +181,7 @@ class GameSession {
     console.log("Safe Locations: " + this.safeLocation);
     console.log("Danger Locations: " + this.dangerLocation);
     console.log("Current Location: " + this.currentXPos + this.currentYPos);
-    console.log("dead tiles; " + this.deadTile);
+    console.log("dead tiles: " + this.deadTile);
     console.log("opened tiles: " + this.openTile);
     console.log("Valid Tiles: " + this.validTile);
     console.log("");
