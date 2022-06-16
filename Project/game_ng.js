@@ -32,10 +32,15 @@ class GameSession {
     this.currentYPos = -1;
   }
 
+  // Environment controlling
+
   newSession() {
+    // Creating a new game session
     this.resetEnv();
     this.genSafeTile();
+    lose = "no";
     this.diff = window.localStorage.getItem("diff");
+    // This part is determining how many life counts the player should have
     if (this.diff == "easy") {
       this.life = 7;
       this.maxLife = 7;
@@ -57,13 +62,32 @@ class GameSession {
       this.maxLife = 1;
       document.getElementById("diffDisplay").innerHTML = "永久死亡";
     }
-    document.getElementById("lifeDisplay").innerHTML = this.life;
+    // calling viewControl() here, giving the life bar and difficulty bar a color frame
     this.viewControl();
+    // render two start tiles with valid
     document.getElementById("00").src = "./img/valid.png";
     document.getElementById("10").src = "./img/valid.png";
   }
 
+  genSafeTile() {
+    // Generate a 2d list to store safe tiles, and invert it into a danger list
+    // generate a safe tile list and a danger tile list
+    for (var c = 0; c < MAX_COL; c++) {
+      d = Math.floor(Math.random() * 2);
+      if (d < 1) {
+        this.safeLocation[c] = [c, 0];
+        this.dangerLocation[c] = [c, 1]; // inverting the safeLocation result
+      } else {
+        this.safeLocation[c] = [c, 1];
+        this.dangerLocation[c] = [c, 0]; // inverting the safeLocation result
+      }
+    }
+    console.log(this.safeLocation); //debug only
+    console.log(this.dangerLocation); //debug only
+  }
+
   resetEnv() {
+    // reseting the game into the start state, and erase all tiles data.
     this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.deadTile = [];
@@ -79,7 +103,9 @@ class GameSession {
     }
   }
 
+  // Display controlling & games
   viewControl() {
+    // a controller that control the color of life bar and difficulty bar
     document.getElementById("lifeDisplay").innerHTML = this.life;
     // Life indicator
     if (this.life / this.maxLife > 2 / 3) {
@@ -105,60 +131,7 @@ class GameSession {
       document.getElementById("diffStatus").style.border = "8px solid #ee82ee";
     }
   }
-
-  genSafeTile() {
-    // generate a safe tile list and a danger tile list
-    for (var c = 0; c < MAX_COL; c++) {
-      d = Math.floor(Math.random() * 2);
-      if (d < 1) {
-        this.safeLocation[c] = [c, 0];
-        this.dangerLocation[c] = [c, 1]; // inverting the safeLocation result
-      } else {
-        this.safeLocation[c] = [c, 1];
-        this.dangerLocation[c] = [c, 0]; // inverting the safeLocation result
-      }
-    }
-    console.log(this.safeLocation); //debug only
-    console.log(this.dangerLocation); //debug only
-  }
-
-  win() {
-    console.log("Player won the game.");
-    window.alert("You won!");
-    window.alert("Receive your prize!");
-    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // Rick Roll LOL
-  }
-  lose() {
-    console.log("Player lose the game.");
-    window.alert("You lost!");
-    window.alert("Receive your punishment now!");
-    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // The same LOL
-    lose = "yes";
-  }
-
-  stepForward(y, x) {
-    if (lose == "yes") {
-    } else {
-      if (x < this.currentXPos) {
-        console.log("Not allowed to step backward");
-      } else if (x > this.currentXPos + 1) {
-        console.log("Not allowed to jump forward");
-      } else {
-        this.currentXPos = x;
-        this.currentYPos = y;
-        if (x == 8) {
-          this.win();
-        }
-        this.validController(); // render valid glass
-        this.playerTP(); // render player position
-        this.deadRender();
-        this.deadControl(y, x); // detect is the player dead or not, then render it
-      }
-    }
-  }
-
-  // Game mechanism
-  // render all valid tiles, then restore old tiles into glass
+  // This method can control where the player can step, then render all valid tiles with correct image.
   validController() {
     targetX = this.currentXPos + 1;
     currentX = this.currentXPos;
@@ -178,6 +151,7 @@ class GameSession {
       a = currentX;
     }
   }
+
   // This method control where the player icon should render, then turn old tile back to glass
   playerTP() {
     targetX = this.currentXPos;
@@ -186,8 +160,11 @@ class GameSession {
     document.getElementById(id).src = "./img/player.png";
     if (lastX == null || lastY == null) {
     } else {
-      id = lastY.toString() + lastX.toString();
-      document.getElementById(id).src = "./img/glass.png";
+      if (document.getElementById(id).src == "./img/player.png") {
+      } else {
+        id = lastY.toString() + lastX.toString();
+        document.getElementById(id).src = "./img/glass.png";
+      }
     }
     lastY = this.currentYPos;
     lastX = this.currentXPos;
@@ -228,7 +205,56 @@ class GameSession {
       }
     }
   }
-  // DEBUG ONLY
+
+  backToStart() {
+    // this method can reset the view, but not erasing any data
+    this.currentXPos = -1;
+    this.currentYPos = -1;
+    for (var i = 0; i < 2; i++) {
+      for (var o = 0; o < 9; o++) {
+        id = i.toString() + o.toString();
+        document.getElementById(id).src = "./img/glass.png";
+      }
+    }
+  }
+  stepForward(y, x) {
+    if (lose == "yes") {
+    } else {
+      if (x < this.currentXPos) {
+        console.log("Not allowed to step backward");
+      } else if (x > this.currentXPos + 1) {
+        console.log("Not allowed to jump forward");
+      } else if (x == this.currentXPos) {
+      } else {
+        this.currentXPos = x;
+        this.currentYPos = y;
+        if (x == 8) {
+          this.win();
+        }
+        this.validController(); // render valid glass
+        this.playerTP(); // render player position
+        this.deadRender();
+        this.deadControl(y, x); // detect is the player dead or not, then render it
+      }
+    }
+  }
+  // Win & Lose
+  // These codes are very simple. It will rick roll the player when they win or lose
+  win() {
+    console.log("Player won the game.");
+    window.alert("You won!");
+    window.alert("Receive your prize!");
+    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // Rick Roll LOL
+  }
+  lose() {
+    console.log("Player lose the game.");
+    window.alert("You lost!");
+    window.alert("Receive your punishment now!");
+    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // The same LOL
+    lose = "yes";
+  }
+
+  // DEBUG controlling
   logLists() {
     console.log("Debugging Data: ");
     console.log("Safe Locations: " + this.safeLocation);
@@ -240,8 +266,3 @@ class GameSession {
     console.log("");
   }
 }
-
-//
-// var play = new GameSession();
-// play.genSafeTile();
-//
