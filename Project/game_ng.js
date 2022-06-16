@@ -255,14 +255,14 @@ class GameSession {
   }
 
   // DEBUG controlling
-  logLists() {
-    console.log("Debugging Data: ");
-    console.log("Safe Locations: " + this.safeLocation);
-    console.log("Danger Locations: " + this.dangerLocation);
-    console.log("Current Location: " + this.currentXPos + this.currentYPos);
-    console.log("dead tiles: " + this.deadTile);
-    console.log("opened tiles: " + this.openTile);
-    console.log("Valid Tiles: " + this.validTile);
-    console.log("");
-  }
+  // logLists() {
+  //   console.log("Debugging Data: ");
+  //   console.log("Safe Locations: " + this.safeLocation);
+  //   console.log("Danger Locations: " + this.dangerLocation);
+  //   console.log("Current Location: " + this.currentXPos + this.currentYPos);
+  //   console.log("dead tiles: " + this.deadTile);
+  //   console.log("opened tiles: " + this.openTile);
+  //   console.log("Valid Tiles: " + this.validTile);
+  //   console.log("");
+  // }
 }
