@@ -30,6 +30,7 @@ class GameSession {
     this.currentXPos = -1;
     this.currentYPos = -1;
     this.Beast = null;
+    this.cheat = localStorage.getItem("cheatCode");
   }
 
   // Environment controlling
@@ -38,7 +39,7 @@ class GameSession {
     // Creating a new game session
     this.resetEnv();
     this.genSafeTile();
-    lose = "no";
+    stop = "no";
     this.diff = window.localStorage.getItem("diff");
     this.Beast = window.localStorage.getItem("Beast");
     // This part is determining how many life counts the player should have
@@ -176,7 +177,10 @@ class GameSession {
       var data = this.dangerLocation[c];
       if (x == data[0]) {
         if (y == data[1]) {
-          this.life = this.life - 1;
+          if (this.cheat == "yes") {
+          } else {
+            this.life = this.life - 1;
+          }
 
           console.log("Player is dead");
           var temp = [x, y];
