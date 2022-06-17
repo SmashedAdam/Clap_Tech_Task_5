@@ -1,4 +1,3 @@
-const MAX_ROUND = 9;
 const MAX_COL = 9;
 const MAX_ROW = 2;
 var d = null;
@@ -11,7 +10,7 @@ var currentX = null;
 var a = null;
 var lastX = null;
 var lastY = null;
-var lose = "no";
+var stop = "no";
 
 class GameSession {
   constructor(
@@ -30,6 +29,7 @@ class GameSession {
     this.diff = "easy";
     this.currentXPos = -1;
     this.currentYPos = -1;
+    this.Beast = null;
   }
 
   // Environment controlling
@@ -40,6 +40,7 @@ class GameSession {
     this.genSafeTile();
     lose = "no";
     this.diff = window.localStorage.getItem("diff");
+    this.Beast = window.localStorage.getItem("Beast");
     // This part is determining how many life counts the player should have
     if (this.diff == "easy") {
       this.life = 7;
@@ -218,7 +219,7 @@ class GameSession {
     }
   }
   stepForward(y, x) {
-    if (lose == "yes") {
+    if (stop == "yes") {
     } else {
       if (x < this.currentXPos) {
         console.log("Not allowed to step backward");
@@ -244,14 +245,20 @@ class GameSession {
     console.log("Player won the game.");
     window.alert("You won!");
     window.alert("Receive your prize!");
-    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // Rick Roll LOL
+    if (this.Beast == "No") {
+    } else {
+      window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus();
+    } // Rick Roll LOL
   }
   lose() {
     console.log("Player lose the game.");
     window.alert("You lost!");
     window.alert("Receive your punishment now!");
-    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus(); // The same LOL
-    lose = "yes";
+    if (this.Beast == "No") {
+    } else {
+      window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus();
+    } // The same LOL
+    stop = "yes";
   }
 
   // DEBUG controlling
