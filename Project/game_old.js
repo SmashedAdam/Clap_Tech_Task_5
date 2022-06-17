@@ -1,6 +1,6 @@
 const MAX_ROUND = 9;
-const MAX_COL = 9;
-const MAX_ROW = 2;
+const columns = 9;
+const rows = 2;
 var d = null;
 var determin = null;
 var position = null;
@@ -108,7 +108,7 @@ class GameSession {
 
   genSafeTile() {
     // generate a safe tile list and a danger tile list
-    for (var c = 0; c < MAX_COL; c++) {
+    for (var c = 0; c < columns; c++) {
       d = Math.floor(Math.random() * 2);
       if (d < 1) {
         this.safeLocation[c] = [c, 0];

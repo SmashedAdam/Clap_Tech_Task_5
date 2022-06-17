@@ -1,5 +1,5 @@
-const MAX_COL = 8;
-const MAX_ROW = 2;
+const columns = 8;
+const rows = 2;
 var d = null;
 var determin = null;
 var position = null;
@@ -41,9 +41,11 @@ class GameSession {
     this.genSafeTile();
     stop = "no";
     this.diff = window.sessionStorage.getItem("diff");
-    if (this.diff == null){
-      document.getElementById("notificationEng").innerHTML = "Please select a difficulty first at settings.";
-      document.getElementById("notificationChi").innerHTML = " 請先在設定選擇難度。";
+    if (this.diff == null) {
+      document.getElementById("notificationEng").innerHTML =
+        "Please select a difficulty first at settings.";
+      document.getElementById("notificationChi").innerHTML =
+        " 請先在設定選擇難度。";
     }
     this.Beast = window.sessionStorage.getItem("Beast");
     // This part is determining how many life counts the player should have
@@ -78,7 +80,7 @@ class GameSession {
   genSafeTile() {
     // Generate a 2d list to store safe tiles, and invert it into a danger list
     // generate a safe tile list and a danger tile list
-    for (var c = 0; c < MAX_COL; c++) {
+    for (var c = 0; c < columns; c++) {
       d = Math.floor(Math.random() * 2);
       if (d < 1) {
         this.safeLocation[c] = [c, 0];
@@ -186,7 +188,7 @@ class GameSession {
             this.life = this.life - 1;
           }
 
-          console.log("Player is dead");
+          window.alert("Player is dead");
           var temp = [x, y];
           this.deadTile.push(temp);
           console.log(this.deadTile.length);
