@@ -29,7 +29,7 @@ class GameSession {
     this.diff = "easy";
     this.currentXPos = -1;
     this.currentYPos = -1;
-    this.Beast = null;
+    this.Beast = "No";
     this.cheat = sessionStorage.getItem("cheatCode");
   }
 
@@ -46,6 +46,8 @@ class GameSession {
         "Please select a difficulty first at settings.";
       document.getElementById("notificationChi").innerHTML =
         " 請先在設定選擇難度。";
+      this.currentXPos = -2;
+      this.currentYPos = -2;
     }
     this.Beast = window.sessionStorage.getItem("Beast");
     // This part is determining how many life counts the player should have
