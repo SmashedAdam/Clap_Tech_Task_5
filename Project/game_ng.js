@@ -1,4 +1,4 @@
-const MAX_COL = 9;
+const MAX_COL = 8;
 const MAX_ROW = 2;
 var d = null;
 var determin = null;
@@ -30,7 +30,7 @@ class GameSession {
     this.currentXPos = -1;
     this.currentYPos = -1;
     this.Beast = null;
-    this.cheat = localStorage.getItem("cheatCode");
+    this.cheat = sessionStorage.getItem("cheatCode");
   }
 
   // Environment controlling
@@ -40,8 +40,12 @@ class GameSession {
     this.resetEnv();
     this.genSafeTile();
     stop = "no";
-    this.diff = window.localStorage.getItem("diff");
-    this.Beast = window.localStorage.getItem("Beast");
+    this.diff = window.sessionStorage.getItem("diff");
+    if (this.diff == null){
+      document.getElementById("notificationEng").innerHTML = "Please select a difficulty first at settings.";
+      document.getElementById("notificationChi").innerHTML = " 請先在設定選擇難度。";
+    }
+    this.Beast = window.sessionStorage.getItem("Beast");
     // This part is determining how many life counts the player should have
     if (this.diff == "easy") {
       this.life = 7;
@@ -90,8 +94,8 @@ class GameSession {
 
   resetEnv() {
     // reseting the game into the start state, and erase all tiles data.
-    this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
-    this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
+    this.safeLocation = [[], [], [], [], [], [], [], []]; // read as: col, row
+    this.dangerLocation = [[], [], [], [], [], [], [], []]; // read as: col, row
     this.deadTile = [];
     this.life = null;
     this.diff = "easy";

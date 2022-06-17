@@ -35,7 +35,7 @@ class GameSession {
   newSession() {
     this.resetEnv();
     this.genSafeTile();
-    this.diff = window.localStorage.getItem("diff");
+    this.diff = window.sessionStorage.getItem("diff");
     if (this.diff == "easy") {
       this.life = 7;
       this.maxLife = 7;

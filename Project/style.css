@@ -52,6 +52,16 @@
   font-size:auto;
 }
 
+.notification {
+  font-size:15px;
+  font-family: tahoma;
+  color: #ff7979;
+  text-align: center;
+  margin-left: 40%;
+  margin-right: auto;
+
+}
+
 .NaviButton {
   display: inline;
   float: left;

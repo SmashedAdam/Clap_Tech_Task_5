@@ -1,12 +1,15 @@
 var code = null;
 function getCode() {
-    code = document.getElementById("cheatCode").value;
-    if (code == "12345678") {
-        localStorage.setItem('cheatCode', 'yes');
-        window.alert("Cheat activated");
-    }
-    else { localStorage.setItem('cheatCode', 'no');
-window.alert("Not correct"); }
-
+  code = document.getElementById("cheatCode").value;
+  if (code == "12345678") {
+    sessionStorage.setItem("cheatCode", "yes");
+    window.alert("Cheat activated");
+  } else {
+    sessionStorage.setItem("cheatCode", "no");
+    window.alert("Not correct");
+  }
 }
-//localStorage
+function disableCode() {
+    sessionStorage.setItem("cheatCode", "no");
+}
+//sessionStorage

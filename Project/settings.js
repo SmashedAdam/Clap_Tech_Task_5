@@ -1,21 +1,21 @@
 function setDifftoEasy() {
-  window.localStorage.setItem("diff", "easy");
+  window.sessionStorage.setItem("diff", "easy");
 }
 function setDifftoNormal() {
-  window.localStorage.setItem("diff", "normal");
+  window.sessionStorage.setItem("diff", "normal");
 }
 function setDifftoHard() {
-  window.localStorage.setItem("diff", "hard");
+  window.sessionStorage.setItem("diff", "hard");
 }
 function setDifftoHardcore() {
-  window.localStorage.setItem("diff", "hardcore");
+  window.sessionStorage.setItem("diff", "hardcore");
 }
 function setDifftoPermaDeath() {
-  window.localStorage.setItem("diff", "permadeath");
+  window.sessionStorage.setItem("diff", "permadeath");
 }
 function unleashTheBeast() {
-  window.localStorage.setItem("Beast", "Yes");
+  window.sessionStorage.setItem("Beast", "Yes");
 }
 function trapTheBeast() {
-  window.localStorage.setItem("Beast", "No");
+  window.sessionStorage.setItem("Beast", "No");
 }
