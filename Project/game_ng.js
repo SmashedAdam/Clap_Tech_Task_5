@@ -256,18 +256,18 @@ class GameSession {
   win() {
     console.log("Player won the game.");
     window.alert("You won!");
-    window.alert("Receive your prize!");
     if (this.Beast == "No") {
     } else {
+      window.alert("Receive your prize!");
       window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus();
     } // Rick Roll LOL
   }
   lose() {
     console.log("Player lose the game.");
     window.alert("You lost!");
-    window.alert("Receive your punishment now!");
     if (this.Beast == "No") {
     } else {
+      window.alert("Receive your punishment now!");
       window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0").focus();
     } // The same LOL
     stop = "yes";
