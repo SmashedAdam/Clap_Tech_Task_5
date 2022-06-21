@@ -27,10 +27,21 @@
     </li>
   </ul>
   <!---->
+  <img
+  src="./img/logo1.png"
+  style="
+    height: 10%;
+    width: 10%;
+    margin-top: 50px;
+    margin-right: 50px;
+    float: right;
+  "
+/>
   <br /><br />
 
   <!-- Title -->
   <h1>Settings  設定</h1>
+
   <blockquote>
     <h2 id="Diff_Title">Difficulty 難度選擇</h2>
   </blockquote>
@@ -41,25 +52,25 @@
       <span>
         <blockquote><blockquote>
         <p>
-          簡單: 7 生命 life  <br />
-          普通: 5 生命 life <br />
-          困難: 3 生命 life <br />
-          噩夢: 2 生命 life <br />
-          永久死亡: 1 生命 life
+          Easy 簡單: 7 life 生命   <br />
+          Normal 普通: 5 life 生命  <br />
+          Hard 困難: 3 life 生命 <br />
+          Hardcore 噩夢: 2 life 生命 <br />
+          Permadeath 永久死亡: 1 life 生命
         
         </p>
         </blockquote></blockquote>
       </span>
-      <button type="button" onclick="setDifftoEasy()" class="Diff_Button Easy">簡單</button>
-      <button type="button" onclick="setDifftoNormal()" class="Diff_Button Medium">普通</button>
-      <button type="button" onclick="setDifftoHard()" class="Diff_Button Hard">困難</button>
-      <button type="button" onclick="setDifftoHardcore()" class="Diff_Button Hardcore">噩夢</button>
-      <button type="button" onclick="setDifftoPermaDeath()" class="Diff_Button PermaDeath">永久死亡</button>
+      <button type="button" onclick="setDifftoEasy()" class="Diff_Button Easy">Easy 簡單</button>
+      <button type="button" onclick="setDifftoNormal()" class="Diff_Button Medium">Normal 普通</button>
+      <button type="button" onclick="setDifftoHard()" class="Diff_Button Hard">Hard 困難</button>
+      <button type="button" onclick="setDifftoHardcore()" class="Diff_Button Hardcore">Hardcore 噩夢</button>
+      <button type="button" onclick="setDifftoPermaDeath()" class="Diff_Button PermaDeath">Permadeath 永久死亡</button>
   </div>
   <div display: table>
-    <blockquote><h2 id="Diff_Title">Unleash The Beast?</h2></blockquote>
-    <button type="button" onclick="unleashTheBeast()" class="Diff_Button Easy">YES</button>
-    <button type="button" onclick="trapTheBeast()" class="Diff_Button Hard">NO</button>
+    <blockquote><h2 id="Diff_Title">Unleash The Beast?<br>解放猛獸？</h2></blockquote>
+    <button type="button" onclick="unleashTheBeast()" class="Diff_Button Easy">YES 是</button>
+    <button type="button" onclick="trapTheBeast()" class="Diff_Button Hard">NO 否</button>
   </div>
 </body>
 

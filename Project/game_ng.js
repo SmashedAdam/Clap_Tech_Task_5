@@ -23,6 +23,7 @@ class GameSession {
   ) {
     this.safeLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
     this.dangerLocation = [[], [], [], [], [], [], [], [], []]; // read as: col, row
+    this.openLocation = [];
     this.deadTile = [];
     this.life = null;
     this.maxLife = null;
@@ -173,7 +174,9 @@ class GameSession {
       if (document.getElementById(id).src == "./img/player.png") {
       } else {
         id = lastY.toString() + lastX.toString();
-        document.getElementById(id).src = "./img/glass.png";
+        document.getElementById(id).src = "./img/open.png";
+        var temp = [lastX, lastY];
+        this.openLocation.push(temp);
       }
     }
     lastY = this.currentYPos;
@@ -218,6 +221,18 @@ class GameSession {
       }
     }
   }
+
+  // openRender() {
+  //   for (var ite = 0; ite < this.openLocation.length; ite++) {
+  //     var block = this.openLocation[ite];
+  //     for (var posi = 0; posi < 2; posi++) {
+  //       var openX = block[0];
+  //       var openY = block[1];
+  //       id = openY.toString() + openX.toString();
+  //       document.getElementById(id).src = "./img/open.png";
+  //     }
+  //   }
+  // }
 
   backToStart() {
     // this method can reset the view, but not erasing any data
