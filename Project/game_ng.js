@@ -43,10 +43,7 @@ class GameSession {
     stop = "no";
     this.diff = window.sessionStorage.getItem("diff");
     if (this.diff == null) {
-      document.getElementById("notificationEng").innerHTML =
-        "Please select a difficulty first at settings.";
-      document.getElementById("notificationChi").innerHTML =
-        " 請先在設定選擇難度。";
+      this.diff = "easy"
       this.currentXPos = -2;
       this.currentYPos = -2;
     }
