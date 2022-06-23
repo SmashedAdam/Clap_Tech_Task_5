@@ -1,7 +1,7 @@
 var code = null;
 function getCode() {
   code = document.getElementById("cheatCode").value;
-  if (code == "12345678") {
+  if (code == "FlyToTheSky") {
     sessionStorage.setItem("cheatCode", "yes");
     window.alert("Cheat activated");
   } else {
