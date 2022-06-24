@@ -43,9 +43,7 @@ class GameSession {
     stop = "no";
     this.diff = window.sessionStorage.getItem("diff");
     if (this.diff == null) {
-      this.diff = "easy"
-      this.currentXPos = -2;
-      this.currentYPos = -2;
+      this.diff = "easy";
     }
     this.Beast = window.sessionStorage.getItem("Beast");
     // This part is determining how many life counts the player should have
@@ -171,7 +169,7 @@ class GameSession {
       if (document.getElementById(id).src == "./img/player.png") {
       } else {
         id = lastY.toString() + lastX.toString();
-        document.getElementById(id).src = "./img/open.png";
+        document.getElementById(id).src = "./img/glass.png";
         var temp = [lastX, lastY];
         this.openLocation.push(temp);
       }
