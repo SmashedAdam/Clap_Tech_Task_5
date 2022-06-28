@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html style="background-color: #c1c0c0">
+  <head>
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+    <script type="text/javascript" src="./cheat.js"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <ul id="Navi">
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./main.html">Play Game! 玩遊戲！</a>
+      </li>
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./settings.html">Settings 設定</a>
+      </li>
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./about_us.html">About Us 關於我們</a>
+      </li>
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./help.html">Help 幫助</a>
+      </li>
+      <li class="NaviButton">
+        <a
+          class="NaviAnchor active"
+          href="./cheat.html"
+          style="background-color: #ff0000"
+          >CHEAT CODES 作弊碼</a
+        >
+      </li>
+    </ul>
+    <!----><!--TODO: Add a title-->>
+    <img
+      src="./img/logo1.png"
+      style="
+        height: 5%;
+        width: 5%;
+        margin-top: 50px;
+        margin-right: 50px;
+        float: left;
+      "
+    />
+    <!-- Cheat code input zone -->
+    <br /><br /><br /><br /><br /><br />
+    <h1>Cheat Code  作弊碼</h1>
+    <div class="cheat_code">
+      <form>
+        <label for="cheatCodes" style="font-family: Tahoma, Arial"
+          >Cheat Code 作弊碼:</label
+        >
+        <input
+          type="text"
+          name="cheatCodeInput"
+          id="cheatCode"
+          placeholder="Secret codes here 神秘代碼"
+        />
+        <button onclick="getCode()" class="Easy">啟動認證</button>
+        <button onclick="disableCode()" class="Hard">關閉作弊</button>
+      </form>
+    </div>
+  </body>
+</html>

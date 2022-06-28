@@ -1,0 +1,185 @@
+#Navi {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: rgb(221, 220, 220);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+#cheatCode {
+  border-style: hidden;
+  width: 30%;
+  padding: 10px;
+  border: 30px;
+}
+
+#playerStatus {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 30%;
+  border: 8px solid #008cff;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+  font-family: tahoma;
+}
+
+#diffStatus {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 30%;
+  border: 8px solid #008cff;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+  font-family: tahoma;
+}
+
+#diffDisplay {
+  font-size:auto;
+}
+
+#lifeDisplay {
+  font-size:auto;
+}
+
+.notification {
+  font-size:15px;
+  font-family: tahoma;
+  color: #ff7979;
+  text-align: center;
+  margin-left: 40%;
+  margin-right: auto;
+
+}
+
+.NaviButton {
+  display: inline;
+  float: left;
+}
+
+.NaviAnchor {
+  display: block;
+  color: #ffffff;
+  background-color: #6bb6bc;
+  padding: 10px;
+  font-family: "Tahoma";
+  text-decoration: none;
+}
+
+.NaviAnchor:hover:not(.active) {
+  background-color: #606060;
+}
+
+.active {
+  display: block;
+  color: #ffffff;
+  background-color: #60cdd4;
+  padding: 10px;
+  font-family: "Tahoma";
+  text-decoration: none;
+}
+
+.Playground {
+  position: relative;
+  width: 50%;
+  height: 300px;
+  background-color: #b7b7b7;
+  text-align: center;
+  border: 5px solid #000000;
+  margin: auto;
+}
+
+.Diff_Button {
+  font-family: Arial;
+  border: none;
+  margin: 20px;
+  padding: 20px;
+}
+
+.Easy {
+  background-color: #57ffb1;
+}
+
+.Medium {
+  background-color: #fef56d;
+}
+
+.Hard {
+  background-color: #ff6868;
+}
+
+.Hardcore {
+  background-color: #8a2be2;
+}
+
+.PermaDeath {
+  background-color: #ee82ee;
+}
+
+.Easy:active {
+  background-color: #21ff97;
+}
+
+.Medium:active {
+  background-color: #fff01d;
+}
+
+.Hard:active {
+  background-color: #ff4e4e;
+}
+
+.Hardcore:active {
+  background-color: #7625c2;
+  color: #ffffff;
+}
+
+.PermaDeath:active {
+  background-color: #c66bc6;
+  color: #ffffff;
+}
+
+.cheat_code {
+  size: 300px;
+}
+
+.glassPlane {
+  margin: 7px;
+}
+
+.welcome {
+  display: block;
+  color: #000000;
+  background-color: #fff45eef;
+  padding: 10px;
+  font-family: "Tahoma";
+  text-decoration: none;
+}
+
+h1 {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
+}
+
+p {
+  font-family: Arial;
+  border: none;
+  text-decoration: none;
+}
+
+h2 {
+  font-family: Arial;
+  border: None;
+  text-decoration: none;
+}
+

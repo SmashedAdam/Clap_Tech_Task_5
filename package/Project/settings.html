@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./style.css" type="text/css" />
+  <script type="text/javascript" src="./settings.js"></script>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <ul id="Navi">
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./main.html">Play Game! 玩遊戲！</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor active" href="./settings.html">Settings 設定</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./about_us.html">About Us 關於我們</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./help.html">Help 幫助</a>
+    </li>
+    <li class="NaviButton">
+      <a class="NaviAnchor" href="./cheat.html" style="background-color: #ff0000;">CHEAT CODES 作弊碼</a>
+    </li>
+  </ul>
+  <!---->
+  <img
+  src="./img/logo1.png"
+  style="
+    height: 5%;
+    width: 5%;
+    margin-top: 50px;
+    margin-right: 50px;
+    float: left;
+  "
+/>
+  <br /><br /><br /><br /><br /><br /><br />
+
+  <!-- Title -->
+  <h1>Settings  設定</h1>
+
+  <blockquote>
+    <h2 id="Diff_Title">Difficulty 難度選擇</h2>
+  </blockquote>
+  <!-- Difficulty Selection Buttons -->
+
+  
+  <div display: table>
+      <span>
+        <blockquote><blockquote>
+        <p>
+          Easy 簡單: 7 life 生命   <br />
+          Normal 普通: 5 life 生命  <br />
+          Hard 困難: 3 life 生命 <br />
+          Hardcore 噩夢: 2 life 生命 <br />
+          Permadeath 永久死亡: 1 life 生命
+        
+        </p>
+        </blockquote></blockquote>
+      </span>
+      <button type="button" onclick="setDifftoEasy()" class="Diff_Button Easy">Easy 簡單</button>
+      <button type="button" onclick="setDifftoNormal()" class="Diff_Button Medium">Normal 普通</button>
+      <button type="button" onclick="setDifftoHard()" class="Diff_Button Hard">Hard 困難</button>
+      <button type="button" onclick="setDifftoHardcore()" class="Diff_Button Hardcore">Hardcore 噩夢</button>
+      <button type="button" onclick="setDifftoPermaDeath()" class="Diff_Button PermaDeath">Permadeath 永久死亡</button>
+  </div>
+  <div display: table>
+    <blockquote><h2 id="Diff_Title">Unleash The Beast?<br>解放猛獸？</h2></blockquote>
+    <button type="button" onclick="unleashTheBeast()" class="Diff_Button Easy">YES 是</button>
+    <button type="button" onclick="trapTheBeast()" class="Diff_Button Hard">NO 否</button>
+  </div>
+</body>
+
+</html>

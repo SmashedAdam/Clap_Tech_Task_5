@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+    <script type="text/javascript" src="./game_ng.js"></script>
+    <script>
+      var play = new GameSession();
+    </script>
+  </head>
+
+  <body onload="play.newSession()">
+    <!-- Navigation Bar -->
+    <ul id="Navi">
+      <li class="NaviButton">
+        <a class="NaviAnchor active" href="./main.html">Play Game! 玩遊戲！</a>
+      </li>
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./settings.html">Settings 設定</a>
+      </li>
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./about_us.html">About Us 關於我們</a>
+      </li>
+      <li class="NaviButton">
+        <a class="NaviAnchor" href="./help.html">Help 幫助</a>
+      </li>
+      <li class="NaviButton">
+        <a
+          class="NaviAnchor active"
+          href="./cheat.html"
+          style="background-color: #ff0000"
+          >CHEAT CODES 作弊碼</a
+        >
+      </li>
+    </ul>
+    <!---->
+
+    <br /><br /><br /><br /><img
+      src="./img/logo1.png"
+      style="
+        height: 10%;
+        width: 10%;
+        margin-top: 10px;
+        margin-left: 70px;
+        margin-right: 50px;
+        float: left;
+      "
+    />
+    <h1 style="margin-left: 550px">
+      Glass Stepping Stone Game<br /><span>玻璃墊腳石遊戲</span>
+    </h1>
+
+    <!-- Playground -->
+    <div class="Playground">
+      <div class="glass" style="margin: auto; padding-top: 20px">
+        <!-- Glass Plane -->
+        <!-- These images id are named with rule: y,x -->
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,0)"
+          id="00"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,1)"
+          id="01"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,2)"
+          id="02"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,3)"
+          id="03"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,4)"
+          id="04"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,5)"
+          id="05"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,6)"
+          id="06"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,7)"
+          id="07"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(0,8)"
+          id="08"
+          class="glassPlane"
+        />
+        <br />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,0)"
+          id="10"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,1)"
+          id="11"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,2)"
+          id="12"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,3)"
+          id="13"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,4)"
+          id="14"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,5)"
+          id="15"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,6)"
+          id="16"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,7)"
+          id="17"
+          class="glassPlane"
+        />
+        <img
+          src="./img/glass.png"
+          onclick="play.stepForward(1,8)"
+          id="18"
+          class="glassPlane"
+        />
+      </div>
+      <br />
+      <!-- Player status will be displayed here-->
+      <div id="playerStatus">
+        <b>Life 剩餘生命：</b>
+        <span id="lifeDisplay">--</span>
+      </div>
+      <span style="margin-left: 100px"></span>
+      <div id="diffStatus">
+        <b>Diff 難度：</b>
+        <span id="diffDisplay">--</span>
+      </div>
+      <!---->
+    </div>
+    <img
+      src="./img/start.png"
+      onclick="play.newSession()"
+      style="width: 10%; height: 10%"
+    />
+    <br />
+    <span id="notificationEng" class="notification"></span><br />
+    <span id="notificationChi" class="notification"></span>
+    <!---->
+
+    <!-- DEBUG  -->
+    <!--
+    <h3>Debug Tools</h3>
+    <button type="button" onclick="play.logLists()">Dump Variables</button>
+    -->
+  </body>
+</html>
